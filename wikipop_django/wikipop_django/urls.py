@@ -4,5 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', include('pop_vote.urls')),
-)
+                       url(r'^$', include('pop_vote.urls',
+                                          namespace='pop_vote')),
+                   )

@@ -3,10 +3,20 @@
 </HEAD>
 
 <BODY>
-<h1>{{wp_page1.title}}</h1>
-<h2>{{wp_page1.mdn_pop}}</h2>
-<h1>{{wp_page2.title}}</h1>
-<h2>{{wp_page2.mdn_pop}}</h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'pop_vote:index' %}" method="post">
+{% csrf_token %}
+<input type="hidden" name="wp_page1" value="{{ wp_page1.title }}">
+<input type="hidden" name="wp_page2" value="{{ wp_page2.title }}">
+<input type="radio" name="pop_vote" id="article1choice" value="{{ wp_page1.title }}" />
+<label for="article1choice">{{ wp_page1.title }}</label><br />
+<input type="radio" name="pop_vote" id="article2choice" value="{{ wp_page2.title }}" />
+<label for="article2choice">{{ wp_page2.title }}</label><br />
+<input type="submit" value="Vote" />
+</form>
+
 </BODY>
 
 </HTML>

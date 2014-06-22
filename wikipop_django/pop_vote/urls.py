@@ -1,10 +1,10 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 
-from . import views
+from .views import IndexView
 
 urlpatterns = patterns(
     '',
-    url(r'^/?$', views.index,
+    url(r'^/?$', IndexView.as_view(),
         name='index'),
 )
