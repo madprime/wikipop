@@ -16,6 +16,8 @@
 <h1>{{ wp_page2.title }}</h1>
 <h2>{{ wp_page2.mdn_pop }}</h2>
 
+<p>Out of {{ num_votes }} votes, {{ num_vote_same }} match yours.</p>
+
 <a href="{% url 'pop_vote:index' %}">Try again</a>
 
 </BODY>
